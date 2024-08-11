@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krypto</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style-chartnav.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="scrollcard.css">
+  <link rel="stylesheet" href="buywindow.css">
+  <link rel="stylesheet" href="bottomNavBar.css">
+  <link rel="stylesheet" href="loader.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="loader"></div>
+
+
+  <div class="buywindow hide" id="buywindow">
+    <div class="window-container">
+     <div class="closebutton-container"><button id="closeWindow" onclick="closeWindow()">X</button></div> 
+        <span id="currentPrice"></span>
+        <div class="innerWindow-container">
+          <span id="money"></span>
+          <div class="input-container"><span id="InputFieldText"></span><input type="text" value="0" id="Window-Input"> Dollar</div>
+          <div class="receive-container" id="receive-container"><span id="receiveField"></span><input type="text" value="0.000000" id="Receive-Output" readonly><span id="spanCrypto"></span></div>
+          <div class="moneyleft-container" id="moneyleft-container"><span id="moneyleftField"></span><span id="Moneyleft-Output"></span></div>
+          <div class="buyButton-container"><button id="BuyCryptoConfirmButton">Buy</button></div>
+        </div>
+   
+    </div>
+  </div>
+
+
+
+  <nav class="search-container">
+
+    <div id="coinInput-Container"><input type="text" id="coinInput" oninput="updateSuggestions()">
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+  </nav>
+  <div class="container">
+
+
+
+    <div class="topps-container">
+      <div class="dropdown-container">
+        <span id="dropdown-span">Sortet by:</span> <select id="dropdown" onchange="checkDropdown()">
+          <option class="dropdownInner" value="1">Rank</option>
+          <option class="dropdownInner" value="2">Watchlist</option>
+        </select>
+      </div>
+      <div class="topsall">
+        <button class="nav-prev" onclick="prev()">
+          <</button>
+
+            <div class="tops" id="tops">
+
+
+
+            </div>
+            <button class="nav-next" onclick="next()">></button>
+      </div>
+    </div>
+
+
+
+
+    <div id="coin-container" class="coin-container">
+      <div id="StarButton-container"><button id="starButton"></button></div>
+
+      <div class="coinChoose-container">
+        <div id="result-container">
+          <div id="result"></div><button id="BuyCryptoButton" onclick="OpenBuyWindow()">Buy</button><span
+            id="procent"></span>
+        </div>
+
+      </div>
+
+      <div id="CollapsListCoinInfo-Container">
+        <div id="CollapsListCoinInfo" class="notactive" onclick="ShowCollaps()">More Infos</div>
+        <div id="CollapsListCoinInfoInner"></div>
+      </div>
+      <div class="chart-container">
+        <div class="chart">
+          <div class="procentChart-container">
+            <span id="high"></span>
+
+          </div>
+          <canvas id="CoinChart"></canvas>
+
+          <span id="low"></span>
+        </div>
+        <div class="bottom-navbar">
+          <a href="#" class="intervalButton" onclick="changeTimeRange(0.0416666667, 'm1')">Stunde</a>
+          <a href="#" class="intervalButton active" id="mainintervalButton" onclick="changeTimeRange(1, 'm5')">Tag</a>
+          <a href="#" class="intervalButton" onclick="changeTimeRange(7, 'h1')">Woche</a>
+          <a href="#" class="intervalButton" onclick="changeTimeRange(30, 'h6')">Monat</a>
+          <a href="#" class="intervalButton" onclick="changeTimeRange(365, 'd1')">Jahr</a>
+        </div>
+      </div>
+
+    </div>
